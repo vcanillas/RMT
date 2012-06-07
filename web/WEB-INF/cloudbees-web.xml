@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+    <appid>supinfo127544/RMTApp</appid>
+    <resource name="jdbc/rmt_db" auth="Container" type="javax.sql.DataSource">
+        <param name="username" value="rmtadmin" />
+        <param name="password" value="admin" />
+        <param name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/rmt_db" />
+    </resource>
+</cloudbees-web-app>

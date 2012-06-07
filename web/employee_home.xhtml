@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="employee.xhtml">
+    <ui:define name="title">
+        <title>Facelet Title</title>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputLink value="add_worktime.xhtml" >Add Worktime </h:outputLink>
+        <br />
+        <br /><br /><br />
+        <h:form>
+            <h:dataTable value="#{workTimeController.model}" var="wt">
+                <h:column>
+                    <f:facet name="header">Start Time</f:facet>
+                    <h:outputText value="#{wt.beginDate}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">End Time</f:facet>
+                    <h:outputText value="#{wt.endDate}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Client</f:facet>
+                    #{wt.client.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Remove</f:facet>
+                    <h:commandLink action="#{workTimeController.remove()}" value="Remove" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+               <h:outputLink value="add_client.xhtml" >Add Client </h:outputLink>
+</ui:define>
+</ui:composition>
+
